@@ -33,12 +33,27 @@ class _DashboardState extends State<Dashboard> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(8.0, 400.0, 8.0, 8.0),
+        padding: const EdgeInsets.fromLTRB(8.0, 100.0, 8.0, 8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            // const Text('Hello,'),
-            // const Text('User'),
+            const Text(
+              'Hello!',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 48.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const Text(
+              'User',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 48.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 200.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
