@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:swaasthya/pages/questions.dart';
+import 'package:swaasthya/pages/result.dart';
 import 'package:swaasthya/pages/sign_in.dart';
+import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -33,23 +36,32 @@ class _DashboardState extends State<Dashboard> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(8.0, 100.0, 8.0, 8.0),
+        padding: const EdgeInsets.fromLTRB(8.0, 50.0, 8.0, 8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            const ProfilePicture(
+              name: 'Nirdesh Singh',
+              role: 'User',
+              radius: 48,
+              fontsize: 36,
+              tooltip: true,
+              random: true,
+            ),
+            const SizedBox(height: 20.0),
             const Text(
               'Hello!',
               style: TextStyle(
                 color: Colors.black,
-                fontSize: 48.0,
+                fontSize: 24.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
             const Text(
-              'User',
+              'Nirdesh',
               style: TextStyle(
                 color: Colors.black,
-                fontSize: 48.0,
+                fontSize: 24.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -61,46 +73,37 @@ class _DashboardState extends State<Dashboard> {
                   style: ElevatedButton.styleFrom(
                     primary: Colors.black,
                   ),
-                  onPressed: () {},
+                  onPressed: () => Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Questions())),
                   child: const Padding(
-                    padding: EdgeInsets.fromLTRB(15.0, 30.0, 15.0, 30.0),
+                    padding: EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 30.0),
                     child: Text(
-                      'Doctors',
+                      'Take Test',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 60.0),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.black,
+                  ),
+                  onPressed: () => Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => const Results())),
+                  child: const Padding(
+                    padding: EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 30.0),
+                    child: Text(
+                      'History',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
                 const SizedBox(width: 10.0),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.black,
-                  ),
-                  onPressed: () {},
-                  child: const Padding(
-                    padding: EdgeInsets.fromLTRB(15.0, 30.0, 15.0, 30.0),
-                    child: Text(
-                      'Kidney',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 10.0),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.black,
-                  ),
-                  onPressed: () {},
-                  child: const Padding(
-                    padding: EdgeInsets.fromLTRB(15.0, 30.0, 15.0, 30.0),
-                    child: Text(
-                      'Vaccine',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ),
               ],
             ),
-            const SizedBox(height: 20.0),
+            const SizedBox(height: 40.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
@@ -110,7 +113,7 @@ class _DashboardState extends State<Dashboard> {
                   ),
                   onPressed: () {},
                   child: const Padding(
-                    padding: EdgeInsets.fromLTRB(15.0, 30.0, 15.0, 30.0),
+                    padding: EdgeInsets.fromLTRB(10.0, 30.0, 10.0, 30.0),
                     child: Text(
                       'Doctors',
                       style: TextStyle(color: Colors.white),
@@ -124,9 +127,9 @@ class _DashboardState extends State<Dashboard> {
                   ),
                   onPressed: () {},
                   child: const Padding(
-                    padding: EdgeInsets.fromLTRB(15.0, 30.0, 15.0, 30.0),
+                    padding: EdgeInsets.fromLTRB(10.0, 30.0, 10.0, 30.0),
                     child: Text(
-                      'Kidney',
+                      'Medicines',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
@@ -138,9 +141,9 @@ class _DashboardState extends State<Dashboard> {
                   ),
                   onPressed: () {},
                   child: const Padding(
-                    padding: EdgeInsets.fromLTRB(15.0, 30.0, 15.0, 30.0),
+                    padding: EdgeInsets.fromLTRB(10.0, 30.0, 10.0, 30.0),
                     child: Text(
-                      'Vaccine',
+                      'Emergency',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
@@ -148,52 +151,6 @@ class _DashboardState extends State<Dashboard> {
               ],
             ),
             const SizedBox(height: 20.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.black,
-                  ),
-                  onPressed: () {},
-                  child: const Padding(
-                    padding: EdgeInsets.fromLTRB(15.0, 30.0, 15.0, 30.0),
-                    child: Text(
-                      'Doctors',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 10.0),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.black,
-                  ),
-                  onPressed: () {},
-                  child: const Padding(
-                    padding: EdgeInsets.fromLTRB(15.0, 30.0, 15.0, 30.0),
-                    child: Text(
-                      'Kidney',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 10.0),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.black,
-                  ),
-                  onPressed: () {},
-                  child: const Padding(
-                    padding: EdgeInsets.fromLTRB(15.0, 30.0, 15.0, 30.0),
-                    child: Text(
-                      'Vaccine',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ),
-              ],
-            ),
           ],
         ),
       ),
