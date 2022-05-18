@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:swaasthya/pages/SharedNan.dart';
 import 'package:swaasthya/pages/dashboard.dart';
 import 'package:swaasthya/pages/result.dart';
+import 'package:swaasthya/pages/shared.dart';
 import 'package:swaasthya/pages/sign_in.dart';
 import 'package:flutter/services.dart';
+import 'dart:math';
 
 class Questions extends StatefulWidget {
   const Questions({Key? key}) : super(key: key);
@@ -92,72 +95,78 @@ class _QuestionsState extends State<Questions> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Container(
-          child: Scrollbar(
-            showTrackOnHover: true,
-            interactive: true,
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  const Text(
-                    'Please enter the following data !',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                      // decoration: TextDecoration.overline,
-                    ),
+        child: Scrollbar(
+          //showTrackOnHover: true,
+          interactive: true,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                const Text(
+                  'Please enter the following data !',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                    // decoration: TextDecoration.overline,
                   ),
-                  const SizedBox(height: 20.0),
-                  ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: attributes.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              attributes[index],
-                              style: const TextStyle(
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                                // decoration: TextDecoration.overline,
-                              ),
+                ),
+                const SizedBox(height: 20.0),
+                ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: attributes.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: <Widget>[
+                          Text(
+                            attributes[index],
+                            style: const TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              // decoration: TextDecoration.overline,
                             ),
-                            const SizedBox(width: 15.0),
-                            Expanded(
-                              child: TextFormField(
-                                decoration: InputDecoration(
-                                  labelText: values[index],
-                                  enabledBorder: const OutlineInputBorder(),
-                                  focusedBorder: const OutlineInputBorder(),
-                                ),
-                                // keyboardType: const TextInputType.numberWithOptions(
-                                //     decimal: true),
-                                // inputFormatters: <TextInputFormatter>[
-                                //   FilteringTextInputFormatter.digitsOnly
-                                // ], // Only numbers can be entered
+                          ),
+                          const SizedBox(width: 15.0),
+                          Expanded(
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                labelText: values[index],
+                                enabledBorder: const OutlineInputBorder(),
+                                focusedBorder: const OutlineInputBorder(),
                               ),
+                              // keyboardType: const TextInputType.numberWithOptions(
+                              //     decimal: true),
+                              // inputFormatters: <TextInputFormatter>[
+                              //   FilteringTextInputFormatter.digitsOnly
+                              // ], // Only numbers can be entered
                             ),
-                          ],
-                        ),
-                      );
-                    },
-                  ),
-                ],
-              ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ],
             ),
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => const Results())),
+        onPressed: () {
+          int randomNumber = Random().nextInt(4) + 1;
+          if (randomNumber <= 2) {
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => const Shared()));
+          } else {
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => const SharedNan()));
+          }
+        },
         label: const Text(
           'Results',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),

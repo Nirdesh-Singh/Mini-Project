@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:swaasthya/pages/questions.dart';
+import 'package:swaasthya/pages/register.dart';
 import 'package:swaasthya/pages/sign_in.dart';
 
 class Results extends StatefulWidget {

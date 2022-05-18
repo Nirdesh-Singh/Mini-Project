@@ -41,7 +41,7 @@ class _DashboardState extends State<Dashboard> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             const ProfilePicture(
-              name: 'Nirdesh Singh',
+              name: 'User',
               role: 'User',
               radius: 48,
               fontsize: 36,
@@ -58,7 +58,7 @@ class _DashboardState extends State<Dashboard> {
               ),
             ),
             const Text(
-              'Nirdesh',
+              'User',
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 24.0,

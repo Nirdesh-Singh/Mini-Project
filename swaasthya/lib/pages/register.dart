@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:swaasthya/pages/dashboard.dart';
+import 'package:swaasthya/pages/shared2.dart';
 import 'package:swaasthya/pages/sign_in.dart';
 
 class Register extends StatefulWidget {
@@ -11,7 +12,14 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
   String email = "";
-  String password = "";
+  String? _password = "";
+
+  bool _obscureText = true;
+  void _toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,18 +79,27 @@ class _RegisterState extends State<Register> {
                     ),
                     hintText: 'YourPassword123',
                     border: OutlineInputBorder()),
-                validator: (val) => val!.isEmpty ? 'Enter an email ' : null,
-                onChanged: (val) {
-                  setState(() => password = val);
-                },
+                validator: (val) =>
+                    val!.length < 6 ? 'Password too short.' : null,
+                onSaved: (val) => _password = val,
+                obscureText: true,
               ),
+              // TextFormField(
+              //   decoration: const InputDecoration(hintText: 'Password'),
+              //   validator: (val) =>
+              //       val!.length < 6 ? 'Enter a password 6+ chars long ' : null,
+              //   obscureText: true,
+              //   onChanged: (val) {
+              //     setState(() => _password = val);
+              //   },
+              // ),
               const SizedBox(height: 25.0),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   primary: Colors.black,
                 ),
                 onPressed: () => Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => const Dashboard())),
+                    MaterialPageRoute(builder: (context) => const Shared2())),
                 child: const Text(
                   'Register',
                   style: TextStyle(color: Colors.white),

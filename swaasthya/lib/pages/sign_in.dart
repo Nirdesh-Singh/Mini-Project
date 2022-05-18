@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:swaasthya/pages/dashboard.dart';
 import 'package:swaasthya/pages/register.dart';
+import 'package:swaasthya/pages/shared2.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -71,10 +72,11 @@ class _SignInState extends State<SignIn> {
                     ),
                     hintText: 'YourPassword123',
                     border: OutlineInputBorder()),
-                validator: (val) => val!.isEmpty ? 'Enter an email ' : null,
+                validator: (val) => val!.isEmpty ? 'Enter a password ' : null,
                 onChanged: (val) {
                   setState(() => email = val);
                 },
+                obscureText: true,
               ),
               const SizedBox(height: 25.0),
               ElevatedButton(
@@ -82,7 +84,7 @@ class _SignInState extends State<SignIn> {
                   primary: Colors.black,
                 ),
                 onPressed: () => Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => const Dashboard())),
+                    MaterialPageRoute(builder: (context) => const Shared2())),
                 child: const Text(
                   'Login',
                   style: TextStyle(color: Colors.white),

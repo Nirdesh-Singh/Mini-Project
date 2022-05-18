@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:swaasthya/pages/loading.dart';
+import 'package:swaasthya/pages/predModel.dart';
 
 void main() {
   runApp(const MyApp());
